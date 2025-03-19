@@ -23,13 +23,13 @@
         background: #000;
         overflow: hidden;
         /* Cambiar cursor a un icono PNG */
-        cursor: url("/files/cursor.cur") 16 16, auto;
+        cursor: url("files/cursor.cur") 16 16, auto;
       }
       canvas {
         display: block;
         width: 100vw;
         height: 100vh;
-        background: url("/files/background_level.jpg") no-repeat center center;
+        background: url("files/background_level.jpg") no-repeat center center;
         background-size: cover;
       }
       .game-stats {
@@ -82,7 +82,7 @@
   </head>
   <body>
     <audio id="backgroundMusic" autoplay loop>
-      <source src="/files/battle_theme.mp3" type="audio/mp3" />
+      <source src="files/battle_theme.mp3" type="audio/mp3" />
       Tu navegador no soporta la etiqueta de audio.
     </audio>
     <audio id="playerShootSound" preload="auto">
@@ -123,7 +123,7 @@
     </script>
 
     <!-- Se incluye el archivo JavaScript externo -->
-    <script src="/js/nivel_Dos.js"></script>
+    <script src="js/nivel_Dos.js"></script>
 
     <!-- Bootstrap JS (opcional para otras funcionalidades) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
