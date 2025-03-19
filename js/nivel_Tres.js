@@ -2,9 +2,9 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const bossImage = new Image();
-bossImage.src = "/files/bossShip.png"; 
+bossImage.src = "files/bossShip.png"; 
 const playerImage = new Image();
-playerImage.src = "/files/player.png";
+playerImage.src = "files/player.png";
 let damageTaken = 0; // Impactos recibidos
 let enemiesDestroyed = 0; // Naves destruidas
 let startTime = Date.now(); // Para calcular el tiempo transcurrido
