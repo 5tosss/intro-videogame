@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nivel Tres - Rebel Squadrons</title>
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #000;
+        overflow: hidden;
+        /* Cambiar cursor a un icono PNG */
+        cursor: url("/files/cursor.cur") 16 16, auto;
+      }
+      canvas {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background: url("/files/background_level.jpg") no-repeat center center;
+        background-size: cover;
+      }
+      .game-stats {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 1.1em;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      }
+
+      .game-stats p {
+        margin: 5px 0;
+      }
+
+      .game-stats span {
+        font-weight: bold;
+      }
+
+      .game-controls {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        width: 250px;
+        font-size: 0.9em;
+      }
+
+      .game-controls h4 {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .game-controls ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .game-controls ul li {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="backgroundMusic" autoplay loop>
+      <source src="/files/battle_theme.mp3" type="audio/mp3" />
+      Tu navegador no soporta la etiqueta de audio.
+    </audio>
+    <audio id="playerShootSound" preload="auto">
+      <source src="files/blast_sound.mp3" type="audio/mp3" />
+      Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+    <audio id="enemyShootSound" preload="auto">
+      <source src="files/enemy_sound.mp3" type="audio/mp3" />
+      Tu navegador no soporta la etiqueta de audio.
+    </audio>
+    <!-- Contenedor de estadísticas del juego -->
+    <div id="gameStats" class="game-stats">
+      <p>
+        <strong>Impactos Recibidos:</strong> <span id="damageTaken">0</span>/5
+      </p>
+      <p>
+        <strong>Vida Jefe:</strong>
+        <span id="enemiesDestroyed">0</span>
+      </p>
+      <p>
+        <strong>Tiempo Transcurrido:</strong> <span id="timeElapsed">0</span> s
+      </p>
+      <p><strong>Mejor Tiempo:</strong> <span id="bestTime">N/A</span> </p>
+      <!-- Mostrar el mejor tiempo aquí -->
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <script>
+      var music = document.getElementById("backgroundMusic");
+      music.volume = 0.05; // Establece el volumen de la música a 20%
+    </script>
+    <script>
+      var blast = document.getElementById("playerShootSound");
+      var shoot_Enemy = document.getElementById("enemyShootSound");
+      blast.volume = 0.05;
+      shoot_Enemy.volume = 0.05;
+    </script>
+
+    <!-- Se incluye el archivo JavaScript externo -->
+    <script src="/js/nivel_Tres.js"></script>
+
+    <!-- Bootstrap JS (opcional para otras funcionalidades) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Contenedor para los controles del juego -->
+    <div class="game-controls">
+      <h4>Controles del Juego</h4>
+      <ul>
+        <li><strong>Flechas Izquierda/Derecha:</strong> Mover la nave</li>
+        <li><strong>Click Izquierdo:</strong> Disparar proyectil</li>
+      </ul>
+    </div>
+  </body>
+</html>
